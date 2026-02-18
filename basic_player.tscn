@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b745n63hyq5qd"]
+
+[ext_resource type="Script" uid="uid://c6asdkrnbrbg4" path="res://basic_player.gd" id="1_ffn7p"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_skmdc"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ffn7p"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="basic_player" type="CharacterBody2D" unique_id=114197256]
+script = ExtResource("1_ffn7p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=759345252]
+texture = ExtResource("2_skmdc")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=823063290]
+replication_config = SubResource("SceneReplicationConfig_ffn7p")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2007707001]
+
+[node name="PlayerName" type="Label" parent="." unique_id=1367540312]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_top = -126.0
+offset_right = 38.0
+offset_bottom = -103.0
+grow_horizontal = 2
+text = "Player: "
+horizontal_alignment = 1
+vertical_alignment = 1
